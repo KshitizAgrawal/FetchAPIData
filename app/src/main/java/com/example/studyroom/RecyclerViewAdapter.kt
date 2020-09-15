@@ -1,15 +1,14 @@
 package com.example.studyroom
 
+import android.R.attr.data
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.studyroom.Data
+
 
 class RecyclerViewAdapter(val context: Context, var list: ArrayList<Data>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -41,5 +40,10 @@ class RecyclerViewAdapter(val context: Context, var list: ArrayList<Data>) :
 
         (holder as ViewHolder).bind(position)
 
+    }
+
+    fun update(data: ArrayList<Data>) {
+        list.clear()
+        list.addAll(data)
     }
 }

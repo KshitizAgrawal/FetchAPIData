@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setEditTextListener()
-        handleRequests()
+        handleRequests("python")
     }
 
     fun handleRequests(filter: String = "all") {
@@ -48,6 +48,8 @@ class MainActivity : AppCompatActivity() {
                 val listdata: MutableList<Items> = ArrayList()
                 val jArray = jsonObject.getJSONArray("items")
                 if (jArray != null) {
+
+                    dataList.clear()
                     for (i in 0 until jArray.length()) {
                         val tags = jArray.getJSONObject(i).getString("tags")
                         val imageUrl = jArray.getJSONObject(i).getJSONObject("owner").getString("profile_image")
